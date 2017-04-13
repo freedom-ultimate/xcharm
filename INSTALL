@@ -19,6 +19,7 @@ Configuring, compiling and testing
 	export BOOST_ROOT=/path/to/boost
 	./configure
 	cp $CHARM_HOME/<build-dir>/include/conv-autoconfig.h ./src/xlat-i
+	mkdir include lib bin 
 
 2. For building XCharm do
 
