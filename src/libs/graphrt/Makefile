@@ -2,7 +2,7 @@ include ../../../config.mk
 CHARMXI=../../../bin/charmxi
 CHARMC_COMPILE_FLAGS=-I./include/graph500 -I$(BOOST_ROOT)/include -Wno-deprecated-declarations
 
-all: libGraph.a
+all: libGraph.a install
 
 install: libGraph.a
 	if [ ! -L ../../../include/graphrt ] ;\

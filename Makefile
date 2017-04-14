@@ -12,7 +12,7 @@ libs:
 test:
 	make -C t test
 
-bench:
+bench_all:
 	make -C bench all
 
 clean:
