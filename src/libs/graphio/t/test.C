@@ -16,7 +16,7 @@ struct VertexData {
 
 /*readonly*/ CProxy_Main mainProxy;
 /*readonly*/ CProxy_Vertex vertexProxy;
-/*readonly*/ CProxy_IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC /*FIXME*/, DistrMode::Block > ioProxy;
+/*readonly*/ CProxy_IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC, GeneratorType::Random /*FIXME*/, DistrMode::Block > ioProxy;
 
 /*readonly*/ int nScale = 5;
 /*readonly*/ int nK = 4;
@@ -77,7 +77,7 @@ public:
 
 	  // create io group
 	  //ioProxy = CProxy_IO<VertexData, GraphFileIOFormat::Generator, DistrMode::Block>::ckNew("test.dat");
-	  ioProxy = CProxy_IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC /*FIXME*/, DistrMode::Block>::ckNew(nScale, nK);
+	  ioProxy = CProxy_IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC, GeneratorType::Random /*FIXME*/, DistrMode::Block>::ckNew(nScale, nK);
 
 	  //CProxy_Foo<VertexData, GraphFileIOFormat::GraphHPC> foo = CProxy_Foo<VertexData, GraphFileIOFormat::GraphHPC>::ckNew();
 

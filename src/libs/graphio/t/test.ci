@@ -2,7 +2,7 @@ mainmodule test {
   extern module InputOutput;
   readonly CProxy_Main mainProxy;
   readonly CProxy_Vertex vertexProxy;
-  readonly CProxy_IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC, DistrMode::Block > ioProxy;
+  readonly CProxy_IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC, GeneratorType::Random, DistrMode::Block > ioProxy;
   readonly int nScale;
   readonly int nK;
 
@@ -18,7 +18,7 @@ mainmodule test {
 	entry void acceptVertexData(VertexData &vdata);
   };        	
 
-  group IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC, DistrMode::Block>;
+  group IO<VertexData, CProxy_Vertex, GraphFileIOFormat::GraphHPC, GeneratorType::Random, DistrMode::Block>;
   group Foo<VertexData, GraphFileIOFormat::GraphHPC>;
 };
 

@@ -26,16 +26,18 @@ class Random_GraphGenerator : public GraphGenerator<V> {
 		uint64_t getVertexNum() { return nVertex; }
 		uint64_t getEdgesNum() { return nEdges; }
 		uint64_t getVertex(V& v) { 
-			v.edge_dsts.clear();
+			//v.edge_dsts.clear();
+			v.edges.clear();
 			v.edge_weigths.clear();
-			v.edge_ids.clear();
+			//v.edge_ids.clear();
 
 			for (uint16_t i = 0; i < K; i++) {			
 				uint64_t vid;
 				while ((vid = rand() % nVertex) == vertexId) {}
-				v.edge_dsts.push_back(vid);
+				//v.edge_dsts.push_back(vid);
+				v.edges.push_back(vid);
 				v.edge_weigths.push_back(((double)rand())/RAND_MAX);
-				v.edge_ids.push_back(0); //FIXME!
+				//v.edge_ids.push_back(0); //FIXME!
 			}
 			return vertexId++; 
 		} 

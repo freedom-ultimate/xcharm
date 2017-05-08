@@ -3,18 +3,18 @@
 #include <string>
 #include <charm++.h>
 #include "GraphIO.h"
-//#include "GraphHPC-1.0/defs.h"
-#include "GraphHPC-0.2/defs.h"
+#include "GraphHPC-1.0/defs.h"
+//#include "GraphHPC-0.2/defs.h"
 
 /*** FIXME: this declaration from GraphHPC-1.0/def.h **/
-typedef struct
+/*typedef struct
 {
     vertex_id_t numTrees;
     edge_id_t numEdges;
     edge_id_t* p_edge_list;
     edge_id_t* edge_id;
 
-} forest_t;
+} forest_t;*/
 void write_output_information(forest_t *trees, char *filename);
 
 /* Abstrac class just for interface */
@@ -44,14 +44,16 @@ class GraphHPC_GraphFileIO : public GraphFileIO<V> {
 		uint64_t getVertexNum() { return G.n; }
 		uint64_t getEdgesNum() { return G.m; }
 		uint64_t getVertex(V& v) { 
-			v.edge_dsts.clear();
+			//v.edge_dsts.clear();
+			v.edges.clear();
 			v.edge_weigths.clear();
-			v.edge_ids.clear();
+			//v.edge_ids.clear();
 
 		  for (edge_id_t j = G.rowsIndices[vertexId]; j < G.rowsIndices[vertexId+1]; j++) {
-				v.edge_dsts.push_back(G.endV[j]);
+				//v.edge_dsts.push_back(G.endV[j]);
+				v.edges.push_back(G.endV[j]);
 				v.edge_weigths.push_back(G.weights[j]);
-				v.edge_ids.push_back(j);
+				//v.edge_ids.push_back(j);
 			}	
 			return vertexId++; 
 		} 

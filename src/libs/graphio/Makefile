@@ -1,12 +1,12 @@
-CHARMC=$(CHARM_HOME)/bin/charmc -std=c++11 -g $(OPTS) -I./GraphHPC-0.2
+CHARMC=$(CHARM_HOME)/bin/charmc -std=c++11 -g $(OPTS) -I./GraphHPC-1.0
 
 TARGETS= libgraphio.a
 
 all: $(TARGETS)
 
 #--------------------------------------------------------------------
-#libgraphio.a: InputOutput.o GraphHPC-1.0/graph_tools.o 
-libgraphio.a: InputOutput.o GraphHPC-0.2/graph_tools.o 
+libgraphio.a: InputOutput.o GraphHPC-1.0/graph_tools.o 
+#libgraphio.a: InputOutput.o GraphHPC-0.2/graph_tools.o 
 	ar r $@ $^
 	cp $@ ../../../lib/
 	ln -s ../src/libs/graphio ../../../include/graphio
